@@ -1,11 +1,11 @@
 const url = "/api/todos/";
-$(document).ready(function() {
+$(document).ready(() => {
     $.ajax({
             method: "GET",
-            url: url,
+            url,
             dataType: "json"
         }).done(addTodos)
-        .fail(function(err) {
+        .fail((err) => {
             console.log(error);
         });
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
 });
 
 function addTodos(todos) {
-    todos.forEach(function(todo) {
+    todos.forEach((todo) => {
         addTodo(todo);
     });
 }
@@ -39,15 +39,15 @@ function postNewTodo(event) {
         const todoName = this.value;
         $.ajax({
                 method: "POST",
-                url: url,
+                url,
                 data: {
                     name: todoName
                 }
-            }).done(function(newTodo) {
+            }).done((newTodo) => {
                 $("#todoInput").val("");
                 addTodo(newTodo);
             })
-            .fail(function(err) {
+            .fail((err) => {
                 console.log(err);
             });
     }
@@ -60,10 +60,10 @@ function deleteTodo(event) {
     $.ajax({
             method: "DELETE",
             url: url.concat(todoId),
-        }).done(function(res) {
+        }).done((res) => {
             self.parent().remove();
         })
-        .fail(function(err) {
+        .fail((err) => {
             console.log(err);
         });
 }
@@ -78,10 +78,10 @@ function updateTodo() {
         data: {
             completed: !completed
         }
-    }).done(function(res) {
+    }).done((res) => {
         self.toggleClass("done");
         self.data("completed", !completed);
-    }).fail(function(err) {
+    }).fail((err) => {
         console.log(err);
     });
 }

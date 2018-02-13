@@ -1,6 +1,6 @@
-var db = require("../models");
+const db = require("../models");
 
-exports.getTodos = function(req, res) {
+exports.getTodos = (req, res) => {
     db.Todo.find({}).then(function(todos) {
         res.json(todos);
     }).catch(function(err) {
@@ -8,7 +8,7 @@ exports.getTodos = function(req, res) {
     });
 }
 
-exports.createTodo = function(req, res) {
+exports.createTodo = (req, res) => {
     res.json(req.body);
     db.Todo.create(req.body)
         .then(function(newTodo) {
@@ -19,7 +19,7 @@ exports.createTodo = function(req, res) {
         });
 }
 
-exports.getTodo = function(req, res) {
+exports.getTodo = (req, res) => {
     db.Todo.findById(req.params.todoId)
         .then(function(foundTodo) {
             res.json(foundTodo);
@@ -29,7 +29,7 @@ exports.getTodo = function(req, res) {
         })
 }
 
-exports.updateTodo = function(req, res) {
+exports.updateTodo = (req, res) => {
     db.Todo.findByIdAndUpdate(req.params.todoId, req.body, { new: true })
         .then(function(foundTodo) {
             res.json(foundTodo);
@@ -39,7 +39,7 @@ exports.updateTodo = function(req, res) {
         });
 }
 
-exports.deleteTodo = function(req, res) {
+exports.deleteTodo = (req, res) => {
     db.Todo.findByIdAndRemove(req.params.todoId)
         .then(function(deleteTodo) {
             res.json({ message: "Delete is done" });

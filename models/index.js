@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 mongoose.set("debug", true);
-mongoose.connect("mongodb://localhost/todo-api");
+mongoose.connect("mongodb://admin:admin@ds235328.mlab.com:35328/todos-api");
 
 mongoose.Promise = Promise;
 
