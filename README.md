@@ -1,6 +1,11 @@
-# Todo App using Node.js - Express - Mongodb
-
-Simple todo App using Node.js, Express, and Mongodb.<br>
-<br>
-This app is my first app that I deployed to heroku :) <br>
-visit this link to check it out: https://floating-meadow-45726.herokuapp.com/
+# Todo App
+Simple FullStack for recording my todos.
+# Resources
+This project is online at: [https://shadi-todo-app.herokuapp.com/](https://shadi-todo-app.herokuapp.com/ "Todo App")
+# Technologies
+* NodeJs
+* ExpressJs
+* Mongodb
+* Mongoose
+* JQuery
+* AJAX
